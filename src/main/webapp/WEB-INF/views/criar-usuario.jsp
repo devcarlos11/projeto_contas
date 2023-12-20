@@ -1,17 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projeto contas</title>
 
-<!-- Referência da folha de estilos CSS do bootstrap -->
+<!-- ReferÃªncia da folha de estilos CSS do bootstrap -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+
+<!-- Folha de estilos CSS local -->
+<style>
+/*formataÃ§Ã£o para mensagem de erro*/
+label.error {
+	color: #d9534f;
+}
+/*formataÃ§Ã£o para o campo com erro*/
+input.error {
+	border: 2px solid #d9534f;
+}
+</style>
 
 </head>
 <body class="bg-secondary">
@@ -24,42 +36,43 @@
 					<div class="text-center">
 						<img src="https://i.vimeocdn.com/portrait/38409031_60x60" />
 						<hr />
-						<h2>Criar conta de usuário</h2>
+						<h2>Criar conta de usuÃ¡rio</h2>
 						<p>Preencha seus dados pra criar uma conta:</p>
 					</div>
 
 					<div class="text-center text-success">
-						<strong>${mensagem_sucesso}</strong>
+						<h5>${mensagem_sucesso}</h5>
 					</div>
 
 					<div class="text-center text-danger">
-						<strong>${mensagem_erro}</strong>
+						<h5>${mensagem_erro}</h5>
 					</div>
 
-					<form method="post" action="criar-usuario-post">
+					<form id="formCriarUsuario" method="post"
+						action="criar-usuario-post">
 
 						<div class="mb-2">
-							<label>Nome de usuário:</label> <input 
-								type="text"
-								class="form-control" 
-								name="nome"
+							<label>Nome de usuÃ¡rio:</label> <input type="text"
+								class="form-control" id="nome" name="nome"
 								placeholder="Digite seu email aqui." />
 						</div>
 
 						<div class="mb-2">
-							<label>Email de acesso:</label> <input 
-								type="text"
-								class="form-control" 
-								name="email"
+							<label>Email de acesso:</label> <input type="text"
+								class="form-control" id="email" name="email"
 								placeholder="Digite seu email aqui." />
 						</div>
 
 						<div class="mb-2">
-							<label>Senha de acesso:</label> <input 
-								type="password"
-								class="form-control" 
-								name="senha"
+							<label>Senha de acesso:</label> <input type="password"
+								class="form-control" id="senha" name="senha"
 								placeholder="Digite sua senha aqui." />
+						</div>
+
+						<div class="mb-2">
+							<label>Confirme a sua senha:</label> <input type="password"
+								class="form-control" id="senhaConfirmacao"
+								name="senhaConfirmacao" placeholder="Confirme sua senha aqui." />
 						</div>
 
 						<div class="mb-2 d-grid">
@@ -79,9 +92,21 @@
 		</div>
 	</div>
 
-	<!-- Referência do arquivo JS dp bootstrap-->
+	<!-- Bootstrap JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+	<!-- JQuery JS -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+	<!-- JQuery Validate JS -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_pt_BR.min.js"></script>
+
+	<script src="resources/js/criar-usuario.js"></script>
 </body>
 </html>
