@@ -9,11 +9,13 @@
 <title>Projeto contas</title>
 
 <!-- Referência da folha de estilos CSS do bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 
 
 <!-- Folha de estilos CSS local -->
-<link href="resources/style.css" rel="stylesheet"/>
+<link href="resources/style.css" rel="stylesheet" />
 
 </head>
 <body class="bg-secondary">
@@ -30,24 +32,31 @@
 						<p>Entre com suas credenciais de acesso:</p>
 					</div>
 
-					<form id="formAutenticar">
+					<div class="text-center text-danger">
+						<h3>${mensagem_erro}</h3>
+					</div>
+
+
+					<form id="formAutenticar" method="post" action="autenticar-post">
 
 						<div class="mb-2">
-							<label>Email de acesso:</label> <input
-							type="text" 
-							class="form-control"
-							id="email"
-							name="email" 
-							placeholder="Digite seu email aqui." />
+							<label>Email de acesso:</label> 
+							<input 
+								type="text"
+								class="form-control"
+								id="email"
+								name="email"
+								placeholder="Digite seu email aqui." />
 						</div>
 
 						<div class="mb-2">
-							<label>Senha de acesso:</label> <input 
-							type="password" 
-							class="form-control"
-							id="senha"
-							name="senha"
-							placeholder="Digite sua senha aqui." />
+							<label>Senha de acesso:</label> 
+							<input 
+								type="password"
+								class="form-control"
+								id="senha"
+								name="senha"
+								placeholder="Digite sua senha aqui." />
 						</div>
 
 						<div class="mb-2 d-grid">
@@ -77,13 +86,16 @@
 	<!-- bootstrap JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- JQuery JS -->
+	<!-- JQuery JS -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 	<!-- JQuery Validate JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_pt_BR.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_pt_BR.min.js"></script>
 
 	<script src="resources/js/autenticar.js"></script>
 

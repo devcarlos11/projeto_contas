@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -40,12 +41,12 @@ input.error {
 						<p>Preencha seus dados pra criar uma conta:</p>
 					</div>
 
-					<div class="text-center text-success">
-						<h5>${mensagem_sucesso}</h5>
+		 			<div class="text-center text-success">
+						<h3>${mensagem_sucesso}</h3>
 					</div>
 
 					<div class="text-center text-danger">
-						<h5>${mensagem_erro}</h5>
+						<h3>${mensagem_erro}</h3>
 					</div>
 
 					<form id="formCriarUsuario" method="post"

@@ -43,16 +43,16 @@ public class CriarUsuarioController {
 			UsuarioRepository usuarioRepository = new UsuarioRepository();
 
 			// verificando se o usuário não existe no banco de dados
-						if (usuarioRepository.find(usuario.getEmail()) == null) {
+			if (usuarioRepository.find(usuario.getEmail(), null) == null) {
 
-							// cadastrar no banco de dados
-							usuarioRepository.create(usuario);
+				// cadastrar no banco de dados
+				usuarioRepository.create(usuario);
 
-							// enviando mensagem de sucesso para a página
-							modelAndView.addObject("mensagem_sucesso", "Usuário cadastrado com sucesso!");
-						} else {
-							throw new Exception("O email informado já está cadastrado para outro usuário.");
-						}
+				// enviando mensagem de sucesso para a página
+				modelAndView.addObject("mensagem_sucesso", "Usuário cadastrado com sucesso!");
+			} else {
+				throw new Exception("O email informado já está cadastrado para outro usuário.");
+			}
 		} catch (Exception e) {
 			// enviando mensagem de erro para a página
 			modelAndView.addObject("mensagem_erro", e.getMessage());

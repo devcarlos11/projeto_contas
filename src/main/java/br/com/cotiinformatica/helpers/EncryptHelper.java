@@ -14,8 +14,7 @@ public class EncryptHelper {
 			// Converte a entrada em bytes
 			byte[] inputBytes = input.getBytes();
 
-			// Atualiza o algoritmo de hash
-//com os bytes da entrada
+			// Atualiza o algoritmo de hash com os bytes da entrada
 			sha1.update(inputBytes);
 
 			// Calcula o hash SHA-1
@@ -24,8 +23,7 @@ public class EncryptHelper {
 			// Converte o hash em uma representação hexadecimal
 			StringBuilder hexString = new StringBuilder();
 			for (byte hashByte : hashBytes) {
-				// Formata cada byte como
-//dois dígitos hexadecimais
+				// Formata cada byte como dois dígitos hexadecimais
 				String hex = Integer.toHexString(0xff & hashByte);
 				if (hex.length() == 1) {
 					hexString.append('0');
