@@ -1,9 +1,9 @@
 /*formatação para mensagem de erro*/
 label.error {
-	color: #d9534f;
+	color: rgb(255, 60, 65);
 }
 
 /*formatação para o campo com erro*/
-input.error {
-	border: 2px solid #d9534f;
+input.error, textarea.error, select.error {
+	border: 1px solid rgb(255, 60, 65);
 }

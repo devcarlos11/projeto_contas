@@ -10,36 +10,34 @@ import br.com.cotiinformatica.factories.ConnectionFactory;
 public class UsuarioRepository {
 
 	/*
-	 * método para gravar os dados de um usuário na tabela do banco de dados do
+	 * Método para gravar os dados de um usuário na tabela do banco de dados do
 	 * PostGreSQL
 	 */
 	public void create(Usuario usuario) throws Exception {
 
-		// abrir conexão com banco de dados
+		// abrir conexão com o banco de dados
 		Connection connection = ConnectionFactory.getConnection();
 
 		// escrevendo a query SQL que será executado no banco de dados
-		String query = "insert into usuario(nome, email, senha) values (?,?,?)";
+		String query = "insert into usuario(nome, email, senha) values(?,?,?)";
 
-		// exceutando a query no banco de dados e passar os parametros
+		// executando a query no banco de dados e passar os parametros
 		PreparedStatement statement = connection.prepareStatement(query);
 		statement.setString(1, usuario.getNome());
 		statement.setString(2, usuario.getEmail());
 		statement.setString(3, usuario.getSenha());
 		statement.execute();
 
-		// fechando conexão com o banco de dados
-		statement.close();
-
+		// fechando a conexão com o banco de dados
+		connection.close();
 	}
 
 	/*
-	 * método para consultar 1 usuário no banco de dados através do email informado
+	 * Método para consultar 1 usuário no banco de dados através do email informado
 	 */
-
 	public Usuario find(String email) throws Exception {
 
-		// abrindo conexão com o banco de dados
+		// abrir conexão com o banco de dados
 		Connection connection = ConnectionFactory.getConnection();
 
 		// escrevendo a query SQL que será executado no banco de dados
@@ -51,7 +49,7 @@ public class UsuarioRepository {
 		ResultSet resultSet = statement.executeQuery();
 
 		Usuario usuario = null;
-		
+
 		// verificando se algum registro foi obtido do banco
 		if (resultSet.next()) {
 
@@ -59,48 +57,44 @@ public class UsuarioRepository {
 			usuario.setIdUsuario(resultSet.getInt("idusuario"));
 			usuario.setNome(resultSet.getString("nome"));
 			usuario.setEmail(resultSet.getString("email"));
-
 		}
 
 		// fechando a conexão
 		connection.close();
-		// retornado o usuário
-		return usuario;
-		
-		}
-		
-		/*
-		 *Método para consultar um usuário no banco de dados
-		 * através do email e senha
-		 */
-		public Usuario find(String email, String senha) throws Exception {
-			
-			//abrindo conexão com o banco de dados
-			Connection connection = ConnectionFactory.getConnection();
-			
-			//escrevendo o comando SQL executado no banco de dados
-			String query = "select * from usuario where email = ? and senha = ? ";
-			
-			//exceutando a query  SQL no banco de dados
-			PreparedStatement statement  = connection.prepareStatement(query);
-			statement.setString(1, email);
-			statement.setString(2, senha);
-			ResultSet resultSet = statement.executeQuery();
-			
-			//criando um objeto usuário
-			Usuario usuario = null;
-			
-			//verificando se algum registro foi encontrado
-			if(resultSet.next()) {
-				
-				usuario = new Usuario();
-				usuario.setIdUsuario(resultSet.getInt("idusuario"));
-				usuario.setNome(resultSet.getString("nome"));
-				usuario.setEmail(resultSet.getString("email"));
-			}
-		
-		connection.close(); //fechando a conexão
+		// retornando o usuário
 		return usuario;
 	}
 
+	/*
+	 * Método para consultar 1 usuário no banco de dados através do email e da senha
+	 */
+	public Usuario find(String email, String senha) throws Exception {
+
+		// abrindo a conexão com o banco de dados
+		Connection connection = ConnectionFactory.getConnection();
+
+		// escrevendo o comando SQL executado no banco de dados
+		String query = "select * from usuario where email = ? and senha = ?";
+
+		// executando a query SQL no banco de dados
+		PreparedStatement statement = connection.prepareStatement(query);
+		statement.setString(1, email);
+		statement.setString(2, senha);
+		ResultSet resultSet = statement.executeQuery();
+
+		// criando um objeto usuário
+		Usuario usuario = null;
+
+		// verificando se algum registro foi encontrado
+		if (resultSet.next()) {
+
+			usuario = new Usuario();
+			usuario.setIdUsuario(resultSet.getInt("idusuario"));
+			usuario.setNome(resultSet.getString("nome"));
+			usuario.setEmail(resultSet.getString("email"));
+		}
+
+		connection.close(); // fechando a conexão
+		return usuario;
+	}
 }
