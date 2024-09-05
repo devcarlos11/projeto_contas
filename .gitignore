@@ -1,0 +1,70 @@
+# Arquivos de compilação Java
+*.class
+
+# Arquivos JAR
+*.jar
+
+# Diretórios específicos do Eclipse
+.classpath
+.project
+.settings/
+
+# Diretórios específicos do IntelliJ
+.idea/
+
+# Diretórios específicos do NetBeans
+nb-configuration.xml
+nbactions.xml
+
+# Diretórios específicos do Visual Studio Code
+.vscode/
+
+# Arquivos de log
+*.log
+
+# Diretórios de saída
+target/
+out/
+
+# Arquivos de configuração do Maven
+mvnw
+mvnw.cmd
+.mvn/
+.mvnw/
+
+# Diretório de dependências do Maven
+dependency-reduced-pom.xml
+
+# Diretório de logs do Spring Boot
+logs/
+
+# Arquivos de configuração do Spring Boot
+application.properties
+application.yml
+
+# Arquivos de configuração do Eclipse
+.springBeans
+
+# Diretório de dados do H2 Database
+h2db/
+
+# Arquivos de configuração do Flyway
+db/migration/
+
+# Arquivos temporários
+*.tmp
+
+# Arquivos de configuração do Gradle
+.gradle/
+
+# Arquivos de configuração do Visual Studio Code
+.vscode/
+
+# Arquivos temporários criados por IDEs
+*.iml
+*.ipr
+*.iws
+
+# Arquivos temporários do Windows
+Thumbs.db
+Desktop.ini
